@@ -12,7 +12,7 @@ def main():
             num_pares()
         elif opcion == 3:
             serie_fibonacci()
-        elif opcion == 4:
+        elif opcion == 6:
             repite = False
         else:
             print("Selecciono una opcion errada")
@@ -22,7 +22,9 @@ def menu():
     1. Numeros primos
     2. Numeros pares
     3. Serie Fibonacci
-    4. Salir""")
+    4. Suma Exp incremental
+    5. Suma Exp N
+    6. Salir""")
     licencia()
     return input("--- Seleccione una opcion ---") 
 
