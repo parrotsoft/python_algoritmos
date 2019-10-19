@@ -9,7 +9,7 @@ def main():
         if opcion == 1:
             num_primos()
         elif opcion == 2:
-            num_primos()
+            num_pares()
         elif opcion == 3:
             serie_fibonacci()
         elif opcion == 4:
@@ -32,13 +32,17 @@ def num_primos():
     for i in range (1, ene + 1):
         if isPrimo(i) :
             numeros.append(i)
-        '''else:
-            print(str(i)+" no es numero Primo")'''
     print(numeros)
     
 
 def num_pares():
-    print("Numero Pares")
+    print("--- NUMEROS PARES ---")
+    ene = int(input("Digite el valor de N : "))
+    numeros = []
+    for i in range (1, ene + 1):
+        if isPar(i) :
+            numeros.append(i)
+    print(numeros)
 
 def serie_fibonacci():
     print("Serie Fibonacci")
@@ -54,6 +58,10 @@ def isPrimo(num):
         return True
     else:
         return False
+
+
+def isPar(num):
+    return num % 2 == 0
 
 
 if __name__=="__main__":
