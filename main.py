@@ -26,7 +26,16 @@ def menu():
     return input("--- Seleccione una opcion ---") 
 
 def num_primos():
-    print("Numeros Primos")
+    print("--- NUMEROS PRIMOS ---")
+    ene = int(input("Digite el valor de N : "))
+    numeros = []
+    for i in range (1, ene + 1):
+        if isPrimo(i) :
+            numeros.append(i)
+        '''else:
+            print(str(i)+" no es numero Primo")'''
+    print(numeros)
+    
 
 def num_pares():
     print("Numero Pares")
@@ -37,6 +46,15 @@ def serie_fibonacci():
 def clearConsole():
     clear = lambda: os.system('cls')
     clear()
+
+def isPrimo(num):
+    if(num == 1):
+        return True
+    elif ((2** (num - 1)) % num) == 1 or num == 2:
+        return True
+    else:
+        return False
+
 
 if __name__=="__main__":
     main()
