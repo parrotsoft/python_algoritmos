@@ -60,8 +60,10 @@ def serie_fibonacci():
     print(numeros)
 
 def clearConsole():
-    clear = lambda: os.system('cls')
-    clear()
+    if os.name == "posix":
+        os.system("clear")
+    elif os.name == "ce" or os.name == "nt" or os.name == "dos":
+        os.system("cls")
 
 def isPrimo(num):
     if(num == 1):
@@ -99,8 +101,7 @@ def sumaRecursiva(num, auto):
     i = 0
     if num > 0:
         if auto:
-            i += 1
-            return (num**i) + sumaRecursiva(num -1, auto)
+            return (num**num) + sumaRecursiva(num -1, auto)
         else:
             return (num**num) + sumaRecursiva(num -1, auto)
     else:
