@@ -14,6 +14,8 @@ def main():
             serie_fibonacci()
         elif opcion == 4:
             suma_exp_incremental()
+        elif opcion == 5:
+            suma_exp_n()            
         elif opcion == 6:
             repite = False
         else:
@@ -86,11 +88,21 @@ def licencia():
 def suma_exp_incremental():
     print("--- SUMA EXP. INCREMENTAL ---")
     ene = int(input("Digite el valor de N : "))
-    print(sumaRecursiva(ene))
+    print(sumaRecursiva(ene, True))
 
-def sumaRecursiva(num):
+def suma_exp_n():
+    print("--- SUMA EXP. N ---")
+    ene = int(input("Digite el valor de N : "))
+    print(sumaRecursiva(ene, False))    
+
+def sumaRecursiva(num, auto):
+    i = 0
     if num > 0:
-        return num + sumaRecursiva(num -1)
+        if auto:
+            i += 1
+            return (num**i) + sumaRecursiva(num -1, auto)
+        else:
+            return (num**num) + sumaRecursiva(num -1, auto)
     else:
         return num
 
