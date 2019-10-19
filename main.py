@@ -98,12 +98,12 @@ def suma_exp_n():
     print(sumaRecursiva(ene, False))    
 
 def sumaRecursiva(num, auto):
-    i = 0
+    i = num
     if num > 0:
         if auto:
             return (num**num) + sumaRecursiva(num -1, auto)
         else:
-            return (num**num) + sumaRecursiva(num -1, auto)
+            return (num**i) + sumaRecursiva(num -1, auto)
     else:
         return num
 
