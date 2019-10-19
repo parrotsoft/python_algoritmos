@@ -12,6 +12,8 @@ def main():
             num_pares()
         elif opcion == 3:
             serie_fibonacci()
+        elif opcion == 4:
+            suma_exp_incremental()
         elif opcion == 6:
             repite = False
         else:
@@ -80,6 +82,17 @@ def fib(num):
 def licencia():
     print("Copyright 2019 - Miguel Lopez Ariza")
     print("")
+
+def suma_exp_incremental():
+    print("--- SUMA EXP. INCREMENTAL ---")
+    ene = int(input("Digite el valor de N : "))
+    print(sumaRecursiva(ene))
+
+def sumaRecursiva(num):
+    if num > 0:
+        return num + sumaRecursiva(num -1)
+    else:
+        return num
 
 if __name__=="__main__":
     main()
