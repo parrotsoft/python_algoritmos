@@ -23,6 +23,7 @@ def menu():
     2. Numeros pares
     3. Serie Fibonacci
     4. Salir""")
+    licencia()
     return input("--- Seleccione una opcion ---") 
 
 def num_primos():
@@ -45,7 +46,12 @@ def num_pares():
     print(numeros)
 
 def serie_fibonacci():
-    print("Serie Fibonacci")
+    print("--- SERIE FIBONACCI ---")
+    ene = int(input("Digite el valor de N : "))
+    numeros = []
+    for i in range (1, ene + 1):
+        numeros.append(fib(i))
+    print(numeros)
 
 def clearConsole():
     clear = lambda: os.system('cls')
@@ -63,6 +69,15 @@ def isPrimo(num):
 def isPar(num):
     return num % 2 == 0
 
+def fib(num):
+    if num < 2:
+        return num
+    else:
+        return fib(num-1) + fib(num-2)
+
+def licencia():
+    print("Copyright 2019 - Miguel Lopez Ariza")
+    print("")
 
 if __name__=="__main__":
     main()
