@@ -2,6 +2,8 @@ import os
 import re
 import numpy as np
 
+orden_columnas = 0
+
 def main():
     repite = True;
     while(repite):
@@ -9,6 +11,8 @@ def main():
         clearConsole()
         if opcion == 1:
             mensaje_bienvenida()
+        if opcion == 2:
+            mensaje_orden()
         elif opcion == 4:
             repite = False;
 
@@ -45,8 +49,9 @@ def matriz_to_cadena(matriz):
 
 def mensaje_bienvenida():
     print("--- MENSAJE DE BIENVENIDA ---")
-    cadena = "HHEA1EIR44IT0C2LL63"
-    
+    cadena = "HI12ET04ILP5LE51HRC3"
+    global orden_columnas
+
     n_column = num_columnas(cadena)
     n_filas = num_filas(cadena, n_column)
     matriz = np.chararray((n_filas, n_column))
@@ -59,7 +64,38 @@ def mensaje_bienvenida():
                 pos += 1
 
     saludo_desencriptado = matriz_to_cadena(matriz)
+    orden_columnas = saludo_desencriptado[len(saludo_desencriptado)-n_column:]
     print("El saludo desencriptados : " + saludo_desencriptado)
+    print("El orden de las culumnas es : "+orden_columnas)
+
+    
+
+def mensaje_orden():
+    print("--- MENSAJE DE ORDEN ---")
+    cadena = "BLUAOKABTDTSEBRCDEAERUFEFAEQRENRSGCAEAAENCV"
+
+    n_column = len(orden_columnas)
+    n_filas = num_filas(cadena, n_column)
+    matriz = np.chararray((n_filas, n_column))
+    
+    index = 0;
+    columna = int(orden_columnas[index]);
+    contador_letra = 0
+
+    for x in range(len(cadena)):
+        if contador_letra <= 8:
+            matriz[contador_letra][columna-1] = cadena[x]
+            contador_letra += 1
+            if contador_letra == 8:
+                contador_letra = 0
+        if index < 4:
+            index += 1
+            columna = int(orden_columnas[index])
+
+    print(matriz)
+                
+                
+    
 
 
 if __name__=="__main__":
