@@ -13,6 +13,8 @@ def main():
             mensaje_bienvenida()
         if opcion == 2:
             mensaje_orden()
+        if opcion == 3:
+            mensaje_despedida()
         elif opcion == 4:
             repite = False;
 
@@ -93,10 +95,23 @@ def mensaje_orden():
 
     mensaje_orden_desencriptado = matriz_to_cadena(matriz)
     print("La orden desencriptada : " + mensaje_orden_desencriptado)
-    
-                
-                
-    
+
+def mensaje_despedida():
+    print("--- MENSAJE DE DESPEDIDA ---")
+    cadena = "HI1ET1ILALE HR "
+    n_column = len(orden_columnas)
+    n_filas = num_filas(cadena, n_column)
+    matriz = np.chararray((n_filas, n_column))
+
+    pos = 0
+    for i in range(len(matriz[0])):
+        for j in range(len(matriz)):
+            if pos < len(cadena):
+                matriz[j][i] = cadena[pos]
+                pos += 1
+
+    despedida_desencriptado = matriz_to_cadena(matriz)
+    print("La despedida desencriptada : " + despedida_desencriptado)
 
 
 if __name__=="__main__":
