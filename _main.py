@@ -2,7 +2,7 @@ import os
 import re
 import numpy as np
 
-orden_columnas = 0
+orden_columnas = "24513"
 
 def main():
     repite = True;
@@ -72,7 +72,7 @@ def mensaje_bienvenida():
 
 def mensaje_orden():
     print("--- MENSAJE DE ORDEN ---")
-    cadena = "BLUAOKABTDTSEBRCDEAERUFEFAEQRENRSGCAEAAENCV"
+    cadena = "BLUAOKABTDTSEBRCD EAERUFEF AEQRENRSGCAEAAENCV"
 
     n_column = len(orden_columnas)
     n_filas = num_filas(cadena, n_column)
@@ -83,16 +83,17 @@ def mensaje_orden():
     contador_letra = 0
 
     for x in range(len(cadena)):
-        if contador_letra <= 8:
+        if contador_letra < n_filas:
             matriz[contador_letra][columna-1] = cadena[x]
             contador_letra += 1
-            if contador_letra == 8:
-                contador_letra = 0
-        if index < 4:
+        if contador_letra == n_filas and index < 4:
+            contador_letra = 0
             index += 1
             columna = int(orden_columnas[index])
 
-    print(matriz)
+    mensaje_orden_desencriptado = matriz_to_cadena(matriz)
+    print("La orden desencriptada : " + mensaje_orden_desencriptado)
+    
                 
                 
     
